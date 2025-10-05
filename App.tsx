@@ -53,36 +53,42 @@ function App() {
       return <PatientRegister setAuthMode={setPatientAuthMode} setLoginPortal={setLoginPortal} />;
     }
 
-    // --- NEW AND IMPROVED PORTAL SELECTION SCREEN ---
     return (
       <div className="relative flex flex-col items-center justify-center h-screen bg-landing overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        
+
+        <div className="absolute w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob top-0 left-0"></div>
+        <div className="absolute w-96 h-96 bg-green-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 top-0 right-0"></div>
+        <div className="absolute w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000 bottom-0 left-1/2"></div>
+
         <div className="relative z-10 text-center p-8 bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-2xl border border-white border-opacity-20 animate-float">
-          <div className="flex justify-center items-center mb-6">
-            <Stethoscope className="w-12 h-12 text-white mr-4" />
+          <div className="flex justify-center items-center mb-6 animate-fade-in">
+            <Stethoscope className="w-12 h-12 text-white mr-4 animate-pulse" />
             <div>
-              <h1 className="text-5xl font-bold text-white shadow-lg">
+              <h1 className="text-5xl font-bold text-white shadow-lg animate-slide-down">
                 Shree Medicare HMS
               </h1>
-              <p className="text-white text-opacity-80 mt-2">Your dedicated partner in healthcare management.</p>
+              <p className="text-white text-opacity-80 mt-2 animate-slide-up">Your dedicated partner in healthcare management.</p>
             </div>
           </div>
 
           <div className="flex justify-center gap-8 mt-10">
-            <button 
-              onClick={() => setLoginPortal('staff')} 
-              className="group flex flex-col items-center justify-center w-48 h-48 bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
+            <button
+              onClick={() => setLoginPortal('staff')}
+              className="group flex flex-col items-center justify-center w-48 h-48 bg-gradient-to-br from-blue-500 to-cyan-600 text-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-3 hover:scale-110 transition-all duration-300 animate-bounce-in relative overflow-hidden"
             >
-              <Briefcase className="w-16 h-16 mb-4 transition-transform duration-300 group-hover:scale-110" />
-              <span className="text-xl font-bold">Staff Portal</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+              <Briefcase className="w-16 h-16 mb-4 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12 relative z-10" />
+              <span className="text-xl font-bold relative z-10">Staff Portal</span>
             </button>
-            <button 
-              onClick={() => setLoginPortal('patient')} 
-              className="group flex flex-col items-center justify-center w-48 h-48 bg-gradient-to-br from-green-500 to-teal-600 text-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
+            <button
+              onClick={() => setLoginPortal('patient')}
+              className="group flex flex-col items-center justify-center w-48 h-48 bg-gradient-to-br from-green-500 to-emerald-600 text-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-3 hover:scale-110 transition-all duration-300 animate-bounce-in relative overflow-hidden"
+              style={{ animationDelay: '100ms' }}
             >
-              <User className="w-16 h-16 mb-4 transition-transform duration-300 group-hover:scale-110" />
-              <span className="text-xl font-bold">Patient Portal</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+              <User className="w-16 h-16 mb-4 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12 relative z-10" />
+              <span className="text-xl font-bold relative z-10">Patient Portal</span>
             </button>
           </div>
         </div>
@@ -117,10 +123,10 @@ function App() {
   };
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 overflow-hidden">
+    <div className="flex h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 overflow-hidden animate-fade-in">
       <Sidebar activeModule={activeModule} setActiveModule={setActiveModule} userType={loggedInUser.role} onLogout={handleLogout} />
       <main className="flex-1 overflow-y-auto">
-        <div className="p-8">{renderModule()}</div>
+        <div className="p-8 animate-slide-in-right">{renderModule()}</div>
       </main>
     </div>
   );

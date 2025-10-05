@@ -11,19 +11,20 @@ interface StatCardProps {
 }
 
 const StatCard = ({ title, value, icon, color, trend }: StatCardProps) => (
-  <div className={`${color} rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl`}>
-    <div className="flex items-center justify-between">
+  <div className={`${color} rounded-2xl p-6 shadow-lg transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl card-hover relative overflow-hidden group`}>
+    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+    <div className="flex items-center justify-between relative z-10">
       <div>
         <p className="text-white text-opacity-90 text-sm font-medium mb-2">{title}</p>
-        <h3 className="text-white text-3xl font-bold mb-1">{value}</h3>
+        <h3 className="text-white text-3xl font-bold mb-1 transition-all duration-300 group-hover:scale-110">{value}</h3>
         {trend && (
           <div className="flex items-center text-white text-opacity-90 text-xs">
-            <TrendingUp className="w-3 h-3 mr-1" />
+            <TrendingUp className="w-3 h-3 mr-1 animate-bounce" />
             <span>{trend}</span>
           </div>
         )}
       </div>
-      <div className="bg-white bg-opacity-20 p-4 rounded-xl backdrop-blur-sm">
+      <div className="bg-white bg-opacity-20 p-4 rounded-xl backdrop-blur-sm transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
         {icon}
       </div>
     </div>

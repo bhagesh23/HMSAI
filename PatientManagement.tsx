@@ -1,5 +1,5 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import { Plus, Search, Eye, Trash2, Edit2 } from 'lucide-react';
+import { Plus, Search, Eye, Trash2, CreditCard as Edit2 } from 'lucide-react';
 import { Patient } from '../types';
 import { apiUrl } from '../config/api';
 
